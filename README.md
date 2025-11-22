@@ -1,4 +1,5 @@
 ## Simple YOLO2ONNX converter
+It suports either detection or segmentation models
 
 ## install
 ```
@@ -16,13 +17,25 @@ uv sync
  ```
 
  ## python snippet
+
+ detection
  ```
     from inference import YOLO_ONNX
-    import PIL.Image as Image
 
-
-    model = YOLO_ONNX("yolov8n.onnx")
-    image = Image.open("example.jpg")
-    outputs = model.predict(image)
-    model.visualize(image, outputs, "output.png")
+    model = YOLO_ONNX("model.onnx", mode='detection')
+    image_path = "example.jpg"
+    outputs = model.predict(image_path)
+    model.visualize(image_path, outputs, "output.png")
+    print(f"Found {len(outputs)} objects")
  ```
+
+segmentation
+```
+    from inference import YOLO_ONNX
+
+    model = YOLO_ONNX("model.onnx", mode='segment')
+    image_path = "example.jpg"
+    outputs = model.predict(image_path)
+    model.visualize(image_path, outputs, "output.png")
+    print(f"Found {len(outputs)} objects")
+```
