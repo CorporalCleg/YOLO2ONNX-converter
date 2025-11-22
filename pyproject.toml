@@ -1,0 +1,12 @@
+[project]
+name = "yolo2onnx-converter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "onnx>=1.19.1",
+    "onnxruntime>=1.23.2",
+    "onnxslim>=0.1.75",
+    "ultralytics>=8.3.230",
+]
